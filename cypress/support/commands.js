@@ -20,34 +20,27 @@ Cypress.Commands.add("selectAddItemsToCart", (option) => {
       .then(() => {
         cy.get('[role="menu"]').contains("Tops").click();
       });
+
+    //select the first item
+    cy.get(".product-item").first().click();
+    cy.wait(2000);
   }
 
   if (option === "Search") {
     //search for a specific product
     cy.get("#search").type("Olivia 1/4 Zip Light Jacket{enter}");
+
+    //select the first item
+    cy.get(".product-item").first().click();
+    cy.wait(2000);
   }
-  //select the first item
-  cy.get(".product-item").first().click();
-  cy.wait(2000);
 
   //select a random size
   const randomSizeSelector = getRandomItem(sizeSelectors);
-
-  //save the variable in the window object
-  //this is used in some tests for checks
-  cy.window().then((window) => {
-    window.randomSizeSelector = randomSizeSelector;
-  });
   cy.get(randomSizeSelector).click();
 
   //select a random color
   const randomcolorSelectors = getRandomItem(colorSelectors);
-
-  //save the variable in the window object
-  //this is used in some tests for checks
-  cy.window().then((window) => {
-    window.randomcolorSelectors = randomcolorSelectors;
-  });
   cy.get(randomcolorSelectors).click();
 
   //select random quantity between 1-10
@@ -60,7 +53,7 @@ Cypress.Commands.add("selectAddItemsToCart", (option) => {
   });
   cy.get("#qty").type(randomQuantity);
 
-  //Add item to cart
+  //add item to cart
   cy.contains("Add to Cart").click();
   cy.wait(2000);
 
@@ -75,4 +68,8 @@ Cypress.Commands.add("accessTheShoppingCart", (option) => {
   if (option === "Mini-Cart") {
     cy.get(".action.showcart").click();
   }
+});
+
+Cypress.Commands.add("awaitPageLoader", () => {
+  cy.get(".loading-mask").should("not.exist");
 });

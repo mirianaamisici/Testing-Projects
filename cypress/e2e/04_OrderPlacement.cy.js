@@ -26,7 +26,7 @@ describe("Add items to cart and place the order using different ways", () => {
     cy.contains("Proceed to Checkout").click({ force: true });
 
     //wait so the page will load
-    cy.get(".loading-mask").should("not.exist");
+    cy.awaitPageLoader();
 
     //check the url redirect
     cy.url().should("include", "/checkout/#shipping");
@@ -147,7 +147,7 @@ describe("Add items to cart and place the order using different ways", () => {
     cy.contains("Proceed to Checkout").click({ force: true });
 
     //wait so the page will load
-    cy.get(".loading-mask").should("not.exist");
+    cy.awaitPageLoader();
 
     //check the url redirect
     cy.url().should("include", "/checkout/#shipping");
@@ -263,7 +263,7 @@ describe("Add items to cart and place the order using different ways", () => {
     cy.contains("Proceed to Checkout").click({ force: true });
 
     //wait so the page will load
-    cy.get(".loading-mask").should("not.exist");
+    cy.awaitPageLoader();
 
     //check the url redirect
     cy.url().should("include", "/checkout/#shipping");
@@ -279,6 +279,9 @@ describe("Add items to cart and place the order using different ways", () => {
 
     //click on the next button
     cy.contains("Next").click();
+
+    //wait so the page will load
+    cy.awaitPageLoader();
 
     //check the errors
     cy.get("#customer-email-error").should(
@@ -297,6 +300,9 @@ describe("Add items to cart and place the order using different ways", () => {
 
     //click on the next button
     cy.contains("Next").click();
+
+    //wait so the page will load
+    cy.awaitPageLoader();
 
     //check the rest of the errors for the inputs
     cy.get(".field-error").each((element) => {

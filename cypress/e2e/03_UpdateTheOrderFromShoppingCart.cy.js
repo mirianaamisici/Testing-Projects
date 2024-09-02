@@ -28,7 +28,7 @@ describe("Add items to cart and update the order from the shopping cart", () => 
     cy.contains("Update Shopping Cart").click();
 
     //wait so the page will load
-    cy.get(".loading-mask").should("not.exist");
+    cy.awaitPageLoader();
 
     //check the price was updated
     cy.get(".col.subtotal .price").then((element) => {
@@ -61,7 +61,7 @@ describe("Add items to cart and update the order from the shopping cart", () => 
     cy.get(".action-delete").click();
 
     //wait so the page will load
-    cy.get(".loading-mask").should("not.exist");
+    cy.awaitPageLoader();
 
     //verify the item was deleted
     cy.get(".cart-empty").should(
