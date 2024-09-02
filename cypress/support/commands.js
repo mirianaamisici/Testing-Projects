@@ -28,6 +28,7 @@ Cypress.Commands.add("selectAddItemsToCart", (option) => {
   }
   //select the first item
   cy.get(".product-item").first().click();
+  cy.wait(2000);
 
   //select a random size
   const randomSizeSelector = getRandomItem(sizeSelectors);

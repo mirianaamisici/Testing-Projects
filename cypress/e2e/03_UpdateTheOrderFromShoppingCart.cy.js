@@ -8,7 +8,7 @@ describe("Add items to cart and update the order from the shopping cart", () => 
   });
 
   it("Add items to cart and update the quantity from the shopping cart", () => {
-    //command to select and add items to cart
+    //this command use the search method to add the item to cart
     cy.selectAddItemsToCart("Search");
 
     //click on the link from the confirmation message
@@ -37,7 +37,7 @@ describe("Add items to cart and update the order from the shopping cart", () => 
   });
 
   it("Add items to cart and navigate back to the product page using the pencil icon", () => {
-    //command to select and add items to cart
+    //this command use the search method to add the item to cart
     cy.selectAddItemsToCart("Search");
 
     //click on the link from the confirmation message
@@ -51,7 +51,7 @@ describe("Add items to cart and update the order from the shopping cart", () => 
   });
 
   it("Add items to cart and delete a product from the shopping cart", () => {
-    //command to select and add items to cart
+    //this command use the search method to add the item to cart
     cy.selectAddItemsToCart("Search");
 
     //click on the link from the confirmation message

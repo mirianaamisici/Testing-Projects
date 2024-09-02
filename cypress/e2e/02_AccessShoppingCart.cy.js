@@ -7,7 +7,7 @@ describe("Add items to cart and access shopping cart page from different ways", 
   });
 
   it("Add items to cart and access the shopping cart from confirmation message", () => {
-    //command to select and add items to cart
+    //this command use the search method to add the item to cart
     cy.selectAddItemsToCart("Search");
 
     //click on the link from the confirmation message
@@ -22,7 +22,7 @@ describe("Add items to cart and access shopping cart page from different ways", 
   });
 
   it("Add items to cart and access the shopping cart from the mini-cart from the header", () => {
-    //command to select and add items to cart
+    //this command use the search method to add the item to cart
     cy.selectAddItemsToCart("Search");
 
     //click on mini-cart
